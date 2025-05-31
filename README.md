@@ -2,7 +2,7 @@
 
 This project demonstrates a complete data engineering workflow using real-world sales data from 2007–2025. It includes data ingestion, cleaning and normalization with PySpark, storage into a relational database, and exploratory data analysis (EDA) using Python.
 
-## 🔧 Project Overview
+## Project Overview
 
 This repository outlines the steps taken to transform raw, semi-structured sales data into actionable insights:
 
@@ -10,9 +10,9 @@ This repository outlines the steps taken to transform raw, semi-structured sales
    - Understand the structure and irregularities of the dataset.
    - Identify patterns, inconsistencies, and relationships (e.g., linking entries by invoice number).
 
-2. **Data Cleaning & Normalization (PySpark)**
+2. **Data Cleaning & Normalization (LLM Itergration)**
    - Consolidate multi-line sale entries using invoice numbers.
-   - Normalize inconsistent naming (e.g., product categories like "HD", "High Dense", "N29/200").
+   - Normalize inconsistent naming (e.g., product categories like "HD", "High Dense", "N29/200"), through the use of LLMS.
    - Apply fuzzy matching (e.g., Levenshtein distance) to standardize entries.
 
 3. **Data Storage**
@@ -24,7 +24,7 @@ This repository outlines the steps taken to transform raw, semi-structured sales
 
 ---
 
-## 🗂️ Data
+## Data
 
 - Format: Raw `.txt` file (CSV-style), ~7.2MB
 - Fields include:
@@ -42,7 +42,6 @@ This repository outlines the steps taken to transform raw, semi-structured sales
 ## 🛠 Technologies Used
 
 - **Python**: Initial exploration, EDA, ML
-- **Apache Spark (PySpark)**: Data transformation and normalization
-- **NLTK / FuzzyWuzzy / Levenshtein**: Text normalization
+- Google Gemini: Tagging and strucutring complex freeform entries
 - **PostgreSQL / Supabase**: Data persistence
 - **Jupyter Notebook (`.ipynb`)**: Development environment

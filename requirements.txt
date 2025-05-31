@@ -1,3 +1,6 @@
 pyspark
 pandas
 ipykernel
+seaborn
+matplotlib
+google-genai
