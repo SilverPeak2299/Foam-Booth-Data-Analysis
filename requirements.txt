@@ -4,3 +4,4 @@ ipykernel
 seaborn
 matplotlib
 google-genai
+dotenv
