@@ -86,6 +86,7 @@ Covers, sewing, and related items → Category: Upholstery
 
 Formatting Requirements
 All dimensions must be in millimeters (mm)
+invoice number needs to be an int
 Foam format: density/firmness (add R suffix for outdoor foam)
 
 Items to Skip
