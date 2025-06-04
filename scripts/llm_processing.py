@@ -20,7 +20,7 @@ else:
     progress = {'last_processed_chunk': -1}
 
 starting_point = progress['last_processed_chunk'] * CHUNK_SIZE + 1
-df = pd.read_csv("./data/data.TXT", skiprows=list(range(starting_point)), nrows=CHUNK_SIZE)
+df = pd.read_csv("./data/data.TXT", skiprows=[i for i in range(starting_point)], nrows=CHUNK_SIZE)
 
 to_send = df[["Invoice #", "Item Number", "Description", "Quantity", "Price", "Total"]].to_csv()
 
