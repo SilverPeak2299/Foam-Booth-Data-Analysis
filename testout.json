@@ -1,0 +1,9 @@
+{'Line': [
+    {'Type': '31/200R', 'Price': 527.27, 'Dimentions': {'Height': 50, 'Width': 1000, 'Length': '1730(Z)'}, 'invoice number': '6814'},
+    {'Type': 'Dacron', 'Price': 54.545, 'invoice number': '6814'},
+    {'Type': 'Fabric', 'Price': 70.91, 'invoice number': '6814', 'fabric_length': 4.0},
+    {'Type': 'Fabric', 'Price': 80.0, 'invoice number': '6814', 'fabric_length': 2.5},
+    {'Type': 'Cover', 'Price': 181.82, 'invoice number': '6814'},
+    {'Type': 'Accessory', 'Price': 50.0, 'invoice number': '6814'},
+    {'Type': 'Banking Details', 'Price': 63.63, 'invoice number': '6814'},
+    {'Type': '30/130', 'Price': 280.91, 'Dimentions':{'Height': 150, 'Width': 220, 'Length': '70'}, 'invoice number': '7161'}, {'Type': 'Dacron', 'Price': 72.73, 'invoice number': '7161'}, {'Type': 'Fabric', 'Price': 49.9983, 'invoice number': '7161', 'fabric_length': 6.9}]}
