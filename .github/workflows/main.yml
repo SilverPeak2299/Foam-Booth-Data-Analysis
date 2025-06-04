@@ -28,5 +28,5 @@ jobs:
         env: 
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+          GEMINI_API: ${{ secrets.GEMINI_API }}
         run: python scripts/llm_processing.py
