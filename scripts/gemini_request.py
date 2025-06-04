@@ -83,6 +83,7 @@ Outdoor Soft, Dryflow Soft, Dricell → Type: 27/120R
 Other Products:
 Fabrics: Quantity represents length in meters, put the type as Fabric and store the fabric name
 Covers, sewing, and related items → Category: Upholstery
+Dacron
 
 Formatting Requirements
 All dimensions must be in millimeters (mm)
