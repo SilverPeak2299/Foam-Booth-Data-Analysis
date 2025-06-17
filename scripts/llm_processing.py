@@ -32,7 +32,43 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 foam = re.compile(r"\w+/\w+R?")
+def validate_llm_output(line):
+    try:
+        if "invoice number" in line:
+            line["invoice number"] = int(float(line["invoice number"]))
+        if "Price" in line:
+            line["Price"] = float(line["Price"])
+
+        # Validation checks
+        required_fields = ["invoice number", "Type", "Price"]
+        for field in required_fields:
+            if field not in line or line[field] is None:
+                return False, f"Missing or null field: {field}"
+
+        if not isinstance(line["invoice number"], int):
+            return False, "Invoice number must be an integer."
+
+        if not isinstance(line["Price"], (int, float)):
+            return False, "Price must be a number."
+
+        if line["Type"] == "Fabric":
+            if "fabric_name" not in line or "fabric_length" not in line:
+                return False, "Fabric entries must include fabric_name and fabric_length."
+
+        return True, None
+    except ValueError as e:
+        return False, f"Type-casting error: {str(e)}"
+
+
 for line in results["Line"]:
+    is_valid, error_message = validate_llm_output(line)
+    if not is_valid:
+        with open("failed_inserts.txt", "a") as f:
+            f.write(f"Invalid entry: {line}\n")
+            f.write(f"Error: {error_message}\n")
+            f.write("-" * 80 + "\n")
+        continue
+
     existing_tables = (supabase
               .table("invoice")
               .select("invoice_id")
@@ -82,7 +118,9 @@ for line in results["Line"]:
 
     except Exception as e:
         with open("failed_inserts.txt", "a") as f:
-            f.write(f"{insert_dict}: {e}")
+            f.write(f"Failed to insert: {insert_dict}\n")
+            f.write(f"Error: {str(e)}\n")
+            f.write("-" * 80 + "\n")
  
 
 progress['last_processed_chunk'] += 1
