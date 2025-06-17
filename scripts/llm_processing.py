@@ -54,6 +54,9 @@ def validate_llm_output(line):
         if line["Type"] == "Fabric":
             if "fabric_name" not in line or "fabric_length" not in line:
                 return False, "Fabric entries must include fabric_name and fabric_length."
+        if foam.match(line["Type"]):
+            if "Dimentions" not in line or not isinstance(line["Dimentions"], dict):
+                return False, "Foam entries must include valid dimensions."
 
         return True, None
     except ValueError as e:
